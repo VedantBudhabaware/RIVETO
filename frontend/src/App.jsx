@@ -19,6 +19,7 @@ import NotFound from './pages/NotFound';
 import Ai from './components/Ai';
 import FaqPage from './pages/faqPage';
 
+import PrivicyPolicy from './pages/PrivicyPolicy';
 
 function App() {
   const { userData } = useContext(userDataContext);
@@ -156,7 +157,18 @@ function App() {
             )
           }
         />
-
+           <Route
+          path="/privicypolicy"
+          element={
+            userData ? (
+              <PrivicyPolicy />
+            ) : (
+              <Navigate to="/login" state={{ from: location.pathname }} />
+            )
+          }
+        />
+     
+        
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Ai/>
